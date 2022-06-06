@@ -1,3 +1,17 @@
-<p>
-firstcomponent works!
-</p>
+<p>firstcomponent works!</p>
+<form
+  [formGroup]="checkbox"
+  (ngSubmit)="submit()"
+  *ngIf="namesInput.length > 0"
+>
+  <ng-container *ngFor="let name of namesInput">
+    <input
+      type="checkbox"
+      formControlName="field"
+      [value]="name"
+      (change)="onCheckboxChange($event)"
+    />
+    {{ name }}
+  </ng-container>
+  <input type="submit" value="Submit" />
+</form>

@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'my-app',
@@ -15,6 +10,7 @@ export class AppComponent implements OnInit {
   Form1;
   checkbox;
   names = [];
+  secondInput = [];
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -31,24 +27,28 @@ export class AppComponent implements OnInit {
     // console.log(value);
     this.names.push(value.field);
   }
-  submit() {
-    console.log(this.checkbox.value);
+  firstOutput(value) {
+    console.log(value);
+    this.secondInput.push({ value });
   }
-  onCheckboxChange(e) {
-    const field: FormArray = this.checkbox.get('field') as FormArray;
-    console.log(e.target.value);
-    // if (e.target.checked) {
-    //   field.push(new FormControl(e.target.value));
-    //   console.log(e.target.value);
-    // } else {
-    //   let i: number = 0;
-    //   field.controls.forEach((item: FormControl) => {
-    //     if (item.value == e.target.value) {
-    //       field.removeAt(i);
-    //       return;
-    //     }
-    //     i++;
-    //   });
-    // }
-  }
+  // submit() {
+  //   console.log(this.checkbox.value);
+  // }
+  // onCheckboxChange(e) {
+  //   const field: FormArray = this.checkbox.get('field') as FormArray;
+  //   console.log(e.target.value);
+  //   // if (e.target.checked) {
+  //   //   field.push(new FormControl(e.target.value));
+  //   //   console.log(e.target.value);
+  //   // } else {
+  //   //   let i: number = 0;
+  //   //   field.controls.forEach((item: FormControl) => {
+  //   //     if (item.value == e.target.value) {
+  //   //       field.removeAt(i);
+  //   //       return;
+  //   //     }
+  //   //     i++;
+  //   //   });
+  //   // }
+  // }
 }
